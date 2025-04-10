@@ -23,7 +23,8 @@ const employees = [
   // Add other employees here
 ];
 
-const getSkillClass = (value) => {
+// Explicitly type the parameter as a string
+const getSkillClass = (value: string) => {
   const numericValue = parseFloat(value);
   if (numericValue < 0) return "bg-blue-200 text-blue-800 rounded-full flex justify-center items-center";
   if (numericValue === 0) return "bg-green-500 text-white rounded-full flex justify-center items-center";
@@ -36,14 +37,13 @@ const getSkillClass = (value) => {
 const EmployeeTable = () => {
   const router = useRouter(); // Initialize router for navigation
 
-  const handleRowClick = (eeId) => {
+  const handleRowClick = (eeId: string) => {
     // Navigate to the employee profile page
     router.push(`/dashboard/employee/${eeId}`);
   };
 
   return (
     <div className="container mx-auto p-4">
-      {/* <h1 className="text-2xl font-bold mb-4">Employee List</h1> */}
       <table className="min-w-full border-collapse border border-gray-300 rounded-lg">
         <thead className="bg-gray-200">
           <tr className="h-[72px]">

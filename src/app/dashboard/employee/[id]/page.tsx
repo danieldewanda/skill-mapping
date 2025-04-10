@@ -3,7 +3,28 @@
 import React from "react";
 import { useParams } from "next/navigation"; // Dynamically capture the employee ID from the URL
 
-const employees = [
+// Define TypeScript interfaces for the objects
+interface Skill {
+  name: string;
+  category: string;
+  score: number;
+  percent: number;
+}
+
+interface Employee {
+  id: string;
+  name: string;
+  email: string;
+  joinDate: string;
+  position: string;
+  division: string;
+  manager: string;
+  tenure: string;
+  skills: Skill[];
+}
+
+// Employee data with type annotations
+const employees: Employee[] = [
   {
     id: "00143",
     name: "Kadek Wikananda Laksamana Priambada",
@@ -48,7 +69,8 @@ const EmployeeProfile = () => {
     );
   }
 
-  const renderSkill = (skill) => {
+  // Explicitly type the skill parameter
+  const renderSkill = (skill: Skill) => {
     const barColor =
       skill.percent >= 75
         ? "bg-green-400"
@@ -61,7 +83,10 @@ const EmployeeProfile = () => {
         <div className="text-sm font-medium text-gray-700">{skill.name}</div>
         <div className="flex items-center gap-2">
           <div className="h-2 w-full bg-gray-200 rounded">
-            <div className={`h-full ${barColor} rounded`} style={{ width: `${skill.percent}%` }}></div>
+            <div
+              className={`h-full ${barColor} rounded`}
+              style={{ width: `${skill.percent}%` }}
+            ></div>
           </div>
           <div className="text-sm">{skill.percent}%</div>
         </div>
@@ -75,14 +100,30 @@ const EmployeeProfile = () => {
       <section className="border-b pb-6">
         <h1 className="text-3xl font-bold mb-4">Employee Profile</h1>
         <div className="space-y-2">
-          <p><strong>Name:</strong> {employee.name}</p>
-          <p><strong>ID:</strong> {employee.id}</p>
-          <p><strong>Email:</strong> {employee.email}</p>
-          <p><strong>Division:</strong> {employee.division}</p>
-          <p><strong>Position:</strong> {employee.position}</p>
-          <p><strong>Manager:</strong> {employee.manager}</p>
-          <p><strong>Join Date:</strong> {employee.joinDate}</p>
-          <p><strong>Tenure:</strong> {employee.tenure}</p>
+          <p>
+            <strong>Name:</strong> {employee.name}
+          </p>
+          <p>
+            <strong>ID:</strong> {employee.id}
+          </p>
+          <p>
+            <strong>Email:</strong> {employee.email}
+          </p>
+          <p>
+            <strong>Division:</strong> {employee.division}
+          </p>
+          <p>
+            <strong>Position:</strong> {employee.position}
+          </p>
+          <p>
+            <strong>Manager:</strong> {employee.manager}
+          </p>
+          <p>
+            <strong>Join Date:</strong> {employee.joinDate}
+          </p>
+          <p>
+            <strong>Tenure:</strong> {employee.tenure}
+          </p>
         </div>
       </section>
 
