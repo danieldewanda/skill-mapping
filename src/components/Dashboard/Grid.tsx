@@ -1,8 +1,8 @@
 import React from "react";
-import { StatCards } from "./StatCards";
-import { ActivityGraph } from "./ActivityGraph";
-import { UsageRadar } from "./UsageRadar";
-import { RecentTransactions } from "./RecentTransactions";
+// import { StatCards } from "./StatCards";
+// import { ActivityGraph } from "./ActivityGraph";
+// import { UsageRadar } from "./UsageRadar";
+// import { RecentTransactions } from "./RecentTransactions";
 import TableEmployee from "./TableEmployee";
 
 export const Grid = () => {
